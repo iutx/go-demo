@@ -13,5 +13,9 @@ services:
     envs: {}
     binds: []
     health_check: {}
-addons: {}
+addons:
+  e:
+    plan: "acl:basic"
+    options:
+      version: "1.0.1"
 envs: {}
