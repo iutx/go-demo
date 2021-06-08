@@ -19,6 +19,6 @@ addons:
     options:
       version: "1.0.1"
 envs:
-  key1: "${cpu}"
+  key1: ${cpu}
   key2: 1
-  key3: "zxj"
+  key3: 'zxj'
