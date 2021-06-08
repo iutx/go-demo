@@ -21,4 +21,4 @@ addons:
 envs:
   key1: ${cpu}
   key2: 1
-  key3: zxj
+  key3: 'zxj'
