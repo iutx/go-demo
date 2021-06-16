@@ -1,24 +1,11 @@
-version: '2.0'
+version: "2.0"
 services:
   go-demo:
     ports:
-      - 8080
+      - port: 8080
+        expose: true
     resources:
-      cpu: 0.3
+      cpu: 0.2
       mem: 512
     deployments:
       replicas: 1
-    expose: []
-    hosts: []
-    envs: {}
-    binds: []
-    health_check: {}
-addons:
-  e:
-    plan: acl:basic
-    options:
-      version: 1.0.1
-envs:
-  key1: ${cpu}
-  key2: 1
-  key3: z"sssss"xj
