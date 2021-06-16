@@ -9,9 +9,10 @@ stages:
           alias: go-demo
           description: golang action
           params:
-            command: go build -o web-server server.go
+            command: go build -o web-server main.go
             context: ${git-checkout}
             service: web-server
+            target: web-server
   - stage:
       - release:
           alias: release
