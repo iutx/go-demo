@@ -6,6 +6,15 @@ services:
         expose: true
     resources:
       cpu: 0.2
-      mem: 512
+      mem: 20
     deployments:
       replicas: 1
+addons:
+  canal:
+    plan: "canal:basic"
+    options:
+      version: "1.1.0"
+      canal.instance.master.address: mysql-master.group-addon-mysql--sea51f542578f4b8b9ed7c32f50ec37ed.svc.cluster.local:3306
+      canal.instance.dbUsername: mysql
+      canal.instance.dbPassword: GVQqgX2cAFOIwigJ
+envs: {}
