@@ -1,0 +1,53 @@
+version: "1.1"
+stages:
+  - stage:
+      - api-test:
+          alias: 集成环境Erda自动化测试执行
+          description: 执行单个接口测试。上层可以通过 pipeline.yml 编排一组接口测试的执行顺序。
+          version: "2.0"
+          params:
+            asserts:
+              - arg: status
+                operator: =
+                value: "200"
+            body:
+              content: '{ "configManageNamespaces": "autotest^scope-project-autotest-testcase^scopeid-387^360377813573842556", "userId": "10472"}'
+              type: application/json
+            headers:
+              - key: Cookie
+                value: taid=23ef1f12-6ab4-42d4-99f0-18f26b7f45ab; OPENAPISESSION=a15bc5c5-651f-4856-a5e2-c4d638339eff; lng=de-DE; PMPJSESSIONID=4303b1c8Z9d2a46e7Z179dca7aebaZ9905; ucid=Y2QwZWQyNWItMzllOC00ODE1LWIzZTUtMDY1YmE1NDQzMDFh; u_c_captain_hkci_local=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbiIsInBhdGgiOiIvIiwidG9rZW5LZXkiOiJhOTUwODkzYTIyMTM4YmI2NWY5N2VkYmU3YzI4MTUxODdkYTNiNmZlNjQ0OTEyMjZiNmNlZDc0ODJlMGU3MzM1IiwibmJmIjoxNjI0NzE4NDYxLCJkb21haW4iOiJ0ZXJtaW51cy5pbyIsImlzcyI6ImRyYWNvIiwidGVuYW50SWQiOjEsImV4cGlyZV90aW1lIjo2MDQ4MDAsImV4cCI6MTYyNTMyMzI2MSwiaWF0IjoxNjI0NzE4NDYxfQ.bK0Mw4DV9p_BSQVl-I7QiOtvPa6rTqosyfla2lLc7jY; OPENAPISESSION=7138418f-b1d0-4bd5-9e28-60e80f3448f5; emp_u_c_local=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbiIsInBhdGgiOiIvIiwidG9rZW5LZXkiOiI0YmY0N2NiMWUzZjUwZmMwNTJmOWRmOTY3MGQ3YzlkMzkzOWExMDMxYWU2ZmQyZGVjMWE3YjJiYmNmNjhhNjhlIiwibmJmIjoxNjI0ODQyODY0LCJkb21haW4iOiJhcHAudGVybWludXMuaW8iLCJpc3MiOiJkcmFjbyIsInRlbmFudElkIjoxLCJleHBpcmVfdGltZSI6NjA0ODAwLCJleHAiOjE2MjU0NDc2NjQsImlhdCI6MTYyNDg0Mjg2NH0.wa_aKjgNJJXPBQkLwCCsk25YXls_9A45pE4zgVS0rUg; OPENAPI-CSRF-TOKEN=713cb4700ca391afaeb981f61cffed4fec5ce489bc6ab5b8daf569a66d0a5cc489a8c4ed65c631ec59d362956f6496e
+              - key: Accept
+                value: application/json
+              - key: Content-Type
+                value: application/json
+            method: POST
+            out_params:
+              - expression: status
+                key: status
+                source: status
+            url: https://erda-org.erda.cloud/api/erda/autotests/testplans/10000125/actions/execute
+      - api-test:
+          alias: 集成环境Fdp自动化测试执行
+          description: 执行单个接口测试。上层可以通过 pipeline.yml 编排一组接口测试的执行顺序。
+          version: "2.0"
+          params:
+            asserts:
+              - arg: status
+                operator: =
+                value: "200"
+            body:
+              content: '{ "configManageNamespaces": "autotest^scope-project-autotest-testcase^scopeid-387^359415516923704956", "userId": "10472"}'
+              type: application/json
+            headers:
+              - key: Cookie
+                value: taid=23ef1f12-6ab4-42d4-99f0-18f26b7f45ab; OPENAPISESSION=a15bc5c5-651f-4856-a5e2-c4d638339eff; lng=de-DE; PMPJSESSIONID=4303b1c8Z9d2a46e7Z179dca7aebaZ9905; ucid=Y2QwZWQyNWItMzllOC00ODE1LWIzZTUtMDY1YmE1NDQzMDFh; u_c_captain_hkci_local=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbiIsInBhdGgiOiIvIiwidG9rZW5LZXkiOiJhOTUwODkzYTIyMTM4YmI2NWY5N2VkYmU3YzI4MTUxODdkYTNiNmZlNjQ0OTEyMjZiNmNlZDc0ODJlMGU3MzM1IiwibmJmIjoxNjI0NzE4NDYxLCJkb21haW4iOiJ0ZXJtaW51cy5pbyIsImlzcyI6ImRyYWNvIiwidGVuYW50SWQiOjEsImV4cGlyZV90aW1lIjo2MDQ4MDAsImV4cCI6MTYyNTMyMzI2MSwiaWF0IjoxNjI0NzE4NDYxfQ.bK0Mw4DV9p_BSQVl-I7QiOtvPa6rTqosyfla2lLc7jY; OPENAPISESSION=7138418f-b1d0-4bd5-9e28-60e80f3448f5; emp_u_c_local=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbiIsInBhdGgiOiIvIiwidG9rZW5LZXkiOiI0YmY0N2NiMWUzZjUwZmMwNTJmOWRmOTY3MGQ3YzlkMzkzOWExMDMxYWU2ZmQyZGVjMWE3YjJiYmNmNjhhNjhlIiwibmJmIjoxNjI0ODQyODY0LCJkb21haW4iOiJhcHAudGVybWludXMuaW8iLCJpc3MiOiJkcmFjbyIsInRlbmFudElkIjoxLCJleHBpcmVfdGltZSI6NjA0ODAwLCJleHAiOjE2MjU0NDc2NjQsImlhdCI6MTYyNDg0Mjg2NH0.wa_aKjgNJJXPBQkLwCCsk25YXls_9A45pE4zgVS0rUg; OPENAPI-CSRF-TOKEN=713cb4700ca391afaeb981f61cffed4fec5ce489bc6ab5b8daf569a66d0a5cc489a8c4ed65c631ec59d362956f6496e
+              - key: Accept
+                value: application/json
+              - key: Content-Type
+                value: application/json
+            method: POST
+            out_params:
+              - expression: status
+                key: status
+                source: status
+            url: https://erda-org.erda.cloud/api/erda/autotests/testplans/10000126/actions/execute
